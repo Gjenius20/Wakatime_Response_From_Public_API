@@ -1,12 +1,16 @@
 # wakatime api res in python
-import requests
+
+#this just like 3 line alternative if you cant using O2auth like sample from wakatime docs
+import requests 
 import json
 
-# url = 'https://wakatime.com/api/v1/users/current/stats/last_7_days?api_key=f4378b63-bdf0-41d9-993e-4c600e08aa62'
-# r = requests.get(url)
+user_API = 'Your_Api_Key' #You can get this key from your wakatime option Or you can visit //https://wakatime.com/settings/api-key then paste that key
 
-r = requests.get('https://wakatime.com/api/v1/users/current/stats/last_7_days?api_key=f4378b63-bdf0-41d9-993e-4c600e08aa62')
+# this api only get your current stats from last 7_days if you wanna to change you can visit //https://wakatime.com/developers
+r = requests.get('https://wakatime.com/api/v1/users/current/stats/last_7_days?api_key=' + user_API)
 
-# print(json.loads(r.content))
+# and welldone your get your wakatime json api from last 7days
+print(json.loads(r.content))
 
-print(r.json().get('data').get('best_day').get('created_at'))
+# if you want to get the Specific response from the json use the code below:
+    # print(r.json().get('data').get('best_day').get('created_at'))
